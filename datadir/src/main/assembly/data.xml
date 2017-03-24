@@ -9,7 +9,7 @@
 	<fileSets>
 	    <fileSet>
 		    <directory>src/main/resources</directory>
-            <outputDirectory>/data/</outputDirectory>
+        <outputDirectory>/data/</outputDirectory>
 		    <excludes>
 			   	<!--  <exclude>dbs/**</exclude> This is the reason why Berkeley tests fail.-->
 			   	<exclude>seqs/**</exclude>
