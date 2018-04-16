@@ -17,46 +17,28 @@
 
    <name>workflow-api</name>
 
+
    <profiles>
       <profile>
-         <id>sun</id>
-         <activation>
-            <property>
-               <name>java.vendor</name>
-               <value>Sun Microsystems Inc.</value>
-            </property>
-         </activation>
-         <dependencies>
-            <dependency>
-               <groupId>com.sun</groupId>
-               <artifactId>tools</artifactId>
-               <version>1.6.0</version>
-               <scope>system</scope>
-               <systemPath>${java.home}/../lib/tools.jar</systemPath>
-            </dependency>
-         </dependencies>
-      </profile>
-      <profile>
-         <id>oracle</id>
-         <activation>
-            <property>
-               <name>java.vendor</name>
-               <value>Oracle Corporation</value>
-            </property>
-         </activation>
-         <dependencies>
-            <dependency>
-               <groupId>com.sun</groupId>
-               <artifactId>tools</artifactId>
-               <version>1.7.0</version>
-               <scope>system</scope>
-               <systemPath>${java.home}/../lib/tools.jar</systemPath>
-            </dependency>
-         </dependencies>
+				<id>jdk-before-9</id>
+				<activation>
+					<jdk>[1.8,9)</jdk>
+				</activation>
+				<dependencies>
+					<!-- In Java >= 9 this is embedded in optional modules, to be activated via $project/.mvn/jvm.options -->
+					<dependency>
+						<groupId>com.sun</groupId>
+						<artifactId>tools</artifactId>
+						<version>${java.version}</version>
+						<scope>system</scope>
+				 	  <systemPath>${java.home}/../lib/tools.jar</systemPath>
+					</dependency>					
+				</dependencies>				
       </profile>
    </profiles>
 
    <dependencies>
+   
       <dependency>
          <groupId>com.sun.xml.stream</groupId>
          <artifactId>sjsxp</artifactId>
